@@ -14,15 +14,15 @@ use std::io::{self, Write};
 pub struct Cli {
     /// Mathematical expression to evaluate
     #[arg(short, long)]
-    expr: Option<String>,
+    expr: Option<String>, // mark this as pub if you want to run tests
 
     /// Precision of floating point results
     #[arg(short, long, default_value_t = 2)]
-    precision: usize,
+    precision: usize, // mark this as pub if you want to run tests
 
     /// Suppress all output except results
     #[arg(short, long)]
-    quiet: bool,
+    quiet: bool, // mark this as pub if you want to run tests
 }
 
 impl Cli {
@@ -40,7 +40,7 @@ impl Cli {
             }
         }
     }
-
+    
     fn evaluate_expression(&self, expr: &str) -> Result<(), CalculatorError> {
         let calculator = Calculator::new(expr)?;
         let result = calculator.evaluate()?;

@@ -1,12 +1,9 @@
 [package]
 name = "brsc"
-version = "0.9.0"
+version = "0.9.1"
 edition = "2021"
-description = "brsc (Basic Rust Calculator) is a powerful and modern CLI calculator, inspired by the classic bc (Basic Calculator),
- and built with Rust. It allows users to evaluate mathematical expressions with customizable precision and a quiet output mode for clean results.
-Created by: takashialpha"
-authors = ["takashialpha
-<takashialpha@protonmail.com>"]
+description = "brsc (Basic Rust Calculator) is a powerful and modern CLI calculator inspired by the classic bc (Basic Calculator) and built with Rust."
+authors = ["takashialpha <takashialpha@protonmail.com>"]
 license = "Apache License 2.0"
 repository = "https://github.com/takashialpha/brsc"
 

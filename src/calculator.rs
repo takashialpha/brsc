@@ -4,7 +4,7 @@ use std::collections::HashSet;
 
 #[derive(Debug)]
 pub struct Calculator {
-    expression: String,
+    expression: String, // mark this as pub if you want to run tests
 }
 
 impl Calculator {

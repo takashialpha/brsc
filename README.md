@@ -5,6 +5,11 @@
 Created by: **takashialpha**
 
 ---
+![Project Version](https://img.shields.io/badge/version-0.9.1-brightgreen)
+![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
+![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen)
+![License](https://img.shields.io/badge/license-Apache_2.0-blue.svg)
+---
 
 ## Features
 

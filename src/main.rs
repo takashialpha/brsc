@@ -1,7 +1,14 @@
-// src/main.rs
+//src/main.rs
 mod calculator;
 mod cli;
 mod error;
+
+// #[cfg(test)]
+// mod tests;
+
+/*
+Please read TESTING.md for more information about testing
+*/
 
 use clap::Parser;
 use cli::Cli;

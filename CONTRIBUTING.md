@@ -34,12 +34,10 @@ Now you can make your changes! Please ensure that your code follows the style gu
 - Update the documentation if you add new features or change behavior.
 
 ### 5. Run Tests
-
+READ TESTING.md before doing this part.
 Before submitting your changes, ensure all tests pass:
-**Maybe there are no tests yet but if not this is will be added in the future**
-
 ```sh
-cargo test
+./TEST.sh
 ```
 
 If you’re adding or modifying code that interacts with other parts of the system, it’s important to run all tests to ensure your changes don’t break anything.
