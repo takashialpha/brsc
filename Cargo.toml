@@ -3,9 +3,10 @@ name = "brsc"
 version = "0.1.0"
 edition = "2021"
 
+#i recomend installing like this
 [profile.release]
 strip = true
-opt-level = 3
+opt-level = 3 #change this to z if you want to make this lighter (but less performant)
 lto = true
 codegen-units = 1
 panic = "abort"

@@ -1,6 +1,6 @@
 // src/calculator.rs
-use std::collections::HashSet;
 use crate::error::CalculatorError;
+use std::collections::HashSet;
 
 #[derive(Debug)]
 pub struct Calculator {
@@ -18,10 +18,12 @@ impl Calculator {
 
     fn validate(&self) -> Result<(), CalculatorError> {
         let allowed_chars: HashSet<char> = [
-            '+', '-', '*', '/', '1', '2', '3', '4', '5', 
-            '6', '7', '8', '9', '0', ' ', '^', '(', ')', 
-            'e', 'p', 'i', '.'
-        ].iter().cloned().collect();
+            '+', '-', '*', '/', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ' ', '^', '(',
+            ')', 'e', 'p', 'i', '.',
+        ]
+        .iter()
+        .cloned()
+        .collect();
 
         for c in self.expression.chars() {
             if !allowed_chars.contains(&c) {
