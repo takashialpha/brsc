@@ -39,5 +39,6 @@ The code is prepared for release builds, but if you want to run tests to collabo
   }
   ```
 
-That's it! After completing these steps, you can proceed. If you have already read this, wait a few seconds.
+After reading this, if you are in the TEST.sh, exit to do the changes (ctrl+c or wait some secs to say no).
+If you already did the changes, just wait some seconds.
 ```
