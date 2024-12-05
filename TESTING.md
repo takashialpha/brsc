@@ -1,37 +1,43 @@
-### // this is TESTING.md content.
-# Running tests
-You need to read this. you will cant do tests without this steps.
-The code is prepared for release builds. but if you want to run tests to colaborate, follow this steps:
+```
+### TESTING.md Content
 
-- uncomment this lines in main.rs: 
-'''
-#[cfg(test)]
-mod tests;
-'''
+# Running Tests
+
+You need to read this. You can't run tests without these steps.  
+The code is prepared for release builds, but if you want to run tests to collaborate, follow these steps:
+
+- Uncomment these lines in `main.rs`:
+
+  ```rust
+  #[cfg(test)]
+  mod tests;
+  ```
 
 ---
 
-- go to cli.rs and mark these as pub.
+- Go to `cli.rs` and mark these as `pub`:
 
-'''
-pub struct Cli {
-	pub expr: Option<String>,
-	+++
+  ```rust
+  pub struct Cli {
+      pub expr: Option<String>,
+   // +++
 
-	pub expr: Option<String>,
-	+++
+      pub expr: Option<String>,
+   // +++
 
-	pub quiet: bool,
-   	+++
-}
-'''
+      pub quiet: bool,
+   // +++
+  }
+  ```
 
-- go to calculator.rs and mark this as pub.
+- Go to `calculator.rs` and mark this as `pub`:
 
-'''
-pub struct Calculator {
-	pub quiet: bool,
-	+++
-}
-'''
-That's it. After doing this steps you can proceed. if you already read. wait some seconds.
+  ```rust
+  pub struct Calculator {
+      pub quiet: bool,
+   // +++
+  }
+  ```
+
+That's it! After completing these steps, you can proceed. If you have already read this, wait a few seconds.
+```
