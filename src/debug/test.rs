@@ -1,4 +1,4 @@
-//tests.rs
+// src/debug/test.rs
 
 #[cfg(test)]
 mod tests {

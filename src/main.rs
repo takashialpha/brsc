@@ -1,5 +1,5 @@
 //src/main.rs
-mod calculator;
+mod core;
 mod cli;
 mod error;
 
@@ -11,7 +11,7 @@ Please read TESTING.md for more information about testing
 */
 
 use clap::Parser;
-use cli::Cli;
+use cli::cli::Cli;
 use std::process;
 
 fn main() {

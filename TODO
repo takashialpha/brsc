@@ -1,5 +1,12 @@
 Things todo:
-- Add sqrt, sen, cos, tan, support
-- Add function support
-- Add variables support
+- Use termion for cli
+- Adding this error for error handling
+- Add sqrt, sen, cos, tan, support (as function)
+- Add user function support
+- Add user variables support
 - Debug and search for bugs
+- Try optimizing code, prepare for Release.
+
+---
+
+- Organizing in modules. ... Complete

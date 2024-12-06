@@ -1,5 +1,5 @@
 // src/calculator.rs
-use crate::error::CalculatorError;
+use crate::error::error::CalculatorError;
 use std::collections::HashSet;
 
 #[derive(Debug)]

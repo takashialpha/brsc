@@ -1,6 +1,6 @@
 // src/cli.rs
-use crate::calculator::Calculator;
-use crate::error::CalculatorError;
+use crate::core::calculator::Calculator;
+use crate::error::error::CalculatorError;
 use clap::Parser;
 use std::io::{self, Write};
 
