@@ -18,7 +18,7 @@ mod tests {
         ];
 
         for (expr, expected) in test_cases {
-            let calculator = Calculator::new(expr).unwrap();
+            let mut calculator = Calculator::new(expr).unwrap();
             let result = calculator.evaluate().unwrap();
             assert!((result - expected).abs() < f64::EPSILON, 
                     "Failed for expression: {}, expected {}, got {}", expr, expected, result);

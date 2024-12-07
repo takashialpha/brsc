@@ -1,26 +1,24 @@
-// use crate::core::function::Function; //future function & user function implementation.
 use crate::core::var::Variable;
 use crate::error::error::CalculatorError;
 
 pub fn parse(expr: &mut String) -> Result<(), CalculatorError> {
     if let Some(var_body) = expr.strip_prefix("var ") {
-        return parse_variable(var_body);
+        let mut variable = Variable::init(); 
+        match parse_variable(var_body, &mut variable) {
+            Ok(_) => {
+            	for (name, value) in &variable.variable {
+            		*expr = expr.replace(name, value);
+            	}
+                Ok(())
+            }
+            Err(e) => Err(e),
+        }
     } else {
-    	Ok(())
+        Ok(())
     }
-
-
-
-	
-	/*
-    else if let Some(func_body) = expr.strip_prefix("func ") {
-        return parse_function(func_body);
-    }
-    
-	*/
 }
 
-fn parse_variable(var_body: &str) -> Result<(), CalculatorError> {
+fn parse_variable(var_body: &str, variable: &mut Variable) -> Result<(), CalculatorError> {
     let parts: Vec<&str> = var_body.split_whitespace().collect();
     if parts.len() == 2 {
         let name = parts[0];
@@ -33,13 +31,13 @@ fn parse_variable(var_body: &str) -> Result<(), CalculatorError> {
             return Err(CalculatorError::InvalidVarValue);
         }
 
-        Variable::new(&mut Variable::init(), name.to_string(), value.to_string());
-        return Ok(());
-        
+        match variable.new(name.to_string(), value.to_string()) {
+            Ok(_) => Ok(()),
+            Err(e) => Err(e),
+        }
     } else {
-    	Ok(())
+        Err(CalculatorError::InvalidVarFormat) 
     }
-
 }
 
 // future function implementation 

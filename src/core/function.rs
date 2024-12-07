@@ -1,6 +1,6 @@
 // src/core/function.rs
 
-
+/*
 use crate::error::error::CalculatorError;
 
 pub struct Function {
@@ -32,3 +32,5 @@ impl Function {
 		}
 	}
 }
+*/
+//functions in future
