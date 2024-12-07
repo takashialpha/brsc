@@ -14,15 +14,15 @@ use std::io::{self, Write};
 pub struct Cli {
     /// Mathematical expression to evaluate
     #[arg(short, long)]
-    expr: Option<String>, // mark this as pub if you want to run tests
+    pub expr: Option<String>, // mark this as pub if you want to run tests
 
     /// Precision of floating point results
     #[arg(short, long, default_value_t = 2)]
-    precision: usize, // mark this as pub if you want to run tests
+    pub precision: usize, // mark this as pub if you want to run tests
 
     /// Suppress all output except results
     #[arg(short, long)]
-    quiet: bool, // mark this as pub if you want to run tests
+    pub quiet: bool, // mark this as pub if you want to run tests
 }
 
 impl Cli {
@@ -42,7 +42,7 @@ impl Cli {
     }
     
     fn evaluate_expression(&self, expr: &str) -> Result<(), CalculatorError> {
-        let calculator = Calculator::new(expr)?;
+        let mut calculator = Calculator::new(expr)?;
         let result = calculator.evaluate()?;
 
         if !self.quiet {
@@ -57,26 +57,22 @@ impl Cli {
     fn interactive_mode(&self, quiet: bool) -> Result<(), CalculatorError> {
         if quiet {
             loop {
-                io::stdout()
-                    .flush()
-                    .map_err(|_| CalculatorError::ConversionError)?;
-
                 let mut input = String::new();
                 io::stdin()
                     .read_line(&mut input)
                     .map_err(|_| CalculatorError::ConversionError)?;
-
+    
                 let input = input.trim();
-
+    
                 match input {
                     "exit" => break Ok(()),
                     "" => continue,
-                    _ => match Calculator::new(input).and_then(|calc| calc.evaluate()) {
-                        Ok(result) => {
-                            println!("{:.precision$}", result, precision = self.precision);
+                    _ => {
+                        match self.evaluate_expression(input) {
+                            Ok(_) => (),
+                            Err(e) => eprintln!("Error: {}", e),
                         }
-                        Err(e) => eprintln!("Error: {}", e),
-                    },
+                    }
                 }
             }
         } else {
@@ -85,31 +81,23 @@ impl Cli {
                 io::stdout()
                     .flush()
                     .map_err(|_| CalculatorError::ConversionError)?;
-
+    
                 let mut input = String::new();
                 io::stdin()
                     .read_line(&mut input)
                     .map_err(|_| CalculatorError::ConversionError)?;
-
+    
                 let input = input.trim();
-
+    
                 match input {
                     "exit" => break Ok(()),
                     "" => continue,
-                    _ => match Calculator::new(input).and_then(|calc| calc.evaluate()) {
-                        Ok(result) => {
-                            if !self.quiet {
-                                println!(
-                                    "Result: {:.precision$}",
-                                    result,
-                                    precision = self.precision
-                                );
-                            } else {
-                                println!("{:.precision$}", result, precision = self.precision);
-                            }
+                    _ => {
+                        match self.evaluate_expression(input) {
+                            Ok(_) => (),
+                            Err(e) => eprintln!("Error: {}", e),
                         }
-                        Err(e) => eprintln!("Error: {}", e),
-                    },
+                    }
                 }
             }
         }

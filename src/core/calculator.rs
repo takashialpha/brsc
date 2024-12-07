@@ -1,10 +1,10 @@
-// src/calculator.rs
+// src/core/calculator.rs
+use crate::core::parse::parse;
 use crate::error::error::CalculatorError;
-use std::collections::HashSet;
 
 #[derive(Debug)]
 pub struct Calculator {
-    expression: String, // mark this as pub if you want to run tests
+    pub expression: String, // mark this as pub if you want to run tests
 }
 
 impl Calculator {
@@ -12,31 +12,19 @@ impl Calculator {
         let expr = Self {
             expression: input.to_string(),
         };
-        expr.validate()?;
         Ok(expr)
     }
 
-    fn validate(&self) -> Result<(), CalculatorError> {
-        let allowed_chars: HashSet<char> = [
-            '+', '-', '*', '/', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ' ', '^', '(',
-            ')', 'e', 'p', 'i', '.',
-        ]
-        .iter()
-        .cloned()
-        .collect();
 
-        for c in self.expression.chars() {
-            if !allowed_chars.contains(&c) {
-                return Err(CalculatorError::InvalidCharacter(c));
-            }
-        }
-        Ok(())
-    }
-
-    pub fn evaluate(&self) -> Result<f64, CalculatorError> {
-        meval::eval_str(&self.expression)
-            .map_err(|e| CalculatorError::EvaluationError(e.to_string()))?
-            .try_into()
-            .map_err(|_| CalculatorError::ConversionError)
-    }
+    pub fn evaluate(&mut self) -> Result<f64, CalculatorError> {
+		match parse(&mut self.expression) {
+	        Ok(_) => { 
+	        meval::eval_str(&self.expression)
+	            .map_err(|e| CalculatorError::EvaluationError(e.to_string()))?
+	            .try_into()
+	            .map_err(|_| CalculatorError::ConversionError)
+	        }
+	    	Err(e) => Err(e)
+        }	
+	}
 }

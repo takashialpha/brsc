@@ -1,9 +1,8 @@
 Things todo:
 - Use termion for cli
-- Adding this error for error handling
 - Add sqrt, sen, cos, tan, support (as function)
 - Add user function support
-- Add user variables support
+- Add user variables support ... Almost done
 - Debug and search for bugs
 - Try optimizing code, prepare for Release.
 

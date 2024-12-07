@@ -3,9 +3,9 @@
 #[cfg(test)]
 mod tests {
     // use super::*;
-    use crate::calculator::Calculator;
-    use crate::cli::Cli;
-    use crate::error::CalculatorError;
+    use crate::core::calculator::Calculator;
+    use crate::cli::cli::Cli;
+    use crate::error::error::CalculatorError;
 
     #[test]
     fn test_calculator_valid_expressions() {
@@ -26,20 +26,6 @@ mod tests {
     }
 
     #[test]
-    fn test_calculator_invalid_characters() {
-        let invalid_exprs = vec!["2 + a", "3 # 4", "5 @ 6"];
-
-        for expr in invalid_exprs {
-            let result = Calculator::new(expr);
-            assert!(result.is_err(), "Expected error for expression: {}", expr);
-            if let Err(CalculatorError::InvalidCharacter(_)) = result {
-                // correct error type
-            } else {
-                panic!("Unexpected error type for expression: {}", expr);
-            }
-        }
-    }
-    #[test]
     fn test_cli_precision() {
         let cli = Cli {
             expr: Some("10 / 3".to_string()),
@@ -53,10 +39,6 @@ mod tests {
     
     #[test]
     fn test_error_display() {
-        let error = CalculatorError::InvalidCharacter('x');
-        let error_msg = error.to_string();
-        assert_eq!(error_msg, "Invalid character 'x' in expression");
-
         let eval_error = CalculatorError::EvaluationError("test error".to_string());
         let eval_error_msg = eval_error.to_string();
         assert_eq!(eval_error_msg, "Evaluation error: test error");
