@@ -1,6 +1,9 @@
 # brsc - Basic Rust Calculator
 
-**brsc** (Basic Rust Calculator) is a powerful and modern CLI calculator, inspired by the classic `bc` (Basic Calculator), and built with Rust. It allows users to evaluate mathematical expressions with customizable precision and a quiet output mode for clean results.
+**brsc** (Basic Rust Calculator) is a modern CLI calculator, inspired by the classic `bc` (Basic Calculator), and built with Rust. It allows users to evaluate mathematical expressions with customizable precision and a quiet output mode for clean results.
+
+> **Status: This project has been discontinued and is no longer maintained.**
+> Feel free to fork the repository to continue its development or adapt it to your own needs.
 
 Created by: **takashialpha**
 
@@ -9,6 +12,7 @@ Created by: **takashialpha**
 ![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
 ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen)
 ![License](https://img.shields.io/badge/license-Apache_2.0-blue.svg)
+
 ---
 
 ## Features
@@ -84,7 +88,7 @@ brsc -e "2*2" -q
 
 ## Development
 
-For instructions on how to contribute to **brsc**, please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+Contributions to **brsc** are no longer accepted by the original maintainer. However, you are encouraged to fork the project and adapt it as needed. For reference, consult the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 ---
 
@@ -98,3 +102,4 @@ This project is licensed under the [Apache License 2.0](LICENSE).
 
 - Inspired by the classic `bc` (Basic Calculator) tool.
 - Built using Rust for its safety, performance, and modern tooling.
+
